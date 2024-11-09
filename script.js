@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	let noteIdCounter = 0;
 	if (retrievedNoteIdCounter) {
 		noteIdCounter = retrievedNoteIdCounter;
+		noteIdCounter++;
 	}
 
 	// // TODO: Load the notes from the local storage.
@@ -34,11 +35,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 	//This for loop will loop through the retrievedNotes and will create box elements
 	//that were stored in the Local Storage. 
-	console.log(retrievedNotes);
 	function addNewNote() {
 		const id = noteIdCounter;
 		const content = `Note ${id}`;
-
 		const note = document.createElement("textarea");
 		note.setAttribute("data-note-id", id.toString()); // Stores the note ID to its data attribute.
 		note.value = content; // Sets the note ID as value.
@@ -50,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		// TODO: Add new note to the saved notes in the local storage.
 		const currentSavedNotes = localStorage.getItem('savedNotes');
-		// console.log(currentSavedNotes);
+
 		let notes = [];
 		if (currentSavedNotes) {
 			notes = JSON.parse(currentSavedNotes);
